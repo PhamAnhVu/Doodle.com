@@ -38,6 +38,8 @@
                            data-content="<a href='<c:url value="/user/logout" />' title=''>Logout</a>
                            <br><br><a href='<c:url value="/create" />' title=''>Manager acount</a>"
                            data-placement="bottom">Wellcome, ${sessionScope.username}</a>
+                           <a href="" class="col-lg-2" style="float: right; margin-top: 8px; text-align: right">My polls</a>
+                           <a href="<c:url value="/create"/>" class="col-lg-3" style="float: right; text-align: right; margin-top: 8px;"> Schedule an event</a>
                         <%  } else {
                         %>
                         <a href="<c:url value="/user/login" />" class="col-lg-1" style="margin-right: 0px; text-align: right; float: right;">Login</a>
