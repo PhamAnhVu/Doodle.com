@@ -20,35 +20,65 @@
         <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
     </head>
     <body>
-        <h1>Manage Account</h1>
-        <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9"><h1>Manager acount</h1></div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 50px;">
+            
             <div class="col-lg-3">
                 <ul class="nav nav-pills nav-stacked col-lg-8" style="margin: auto; float: right">
-                    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-                    <li><a data-toggle="tab" href="#menu1">Doodle account</a></li>
+                    <li class="active"><a data-toggle="tab" href="#menu1">Doodle account</a></li>
                     <li><a data-toggle="tab" href="#menu2">Profile settings</a></li>
                     <li><a data-toggle="tab" href="#menu3">MeetMe page</a></li>
-                    <li><a data-toggle="tab" href="#menu3">Calendars</a></li>
+                    <li><a data-toggle="tab" href="#menu4">Calendars</a></li>
                 </ul>
 
             </div>
             <div class="col-lg-9">
                 <div class="tab-content">
-                    <div id="home" class="tab-pane fade in active">
-                        <h3>HOME</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    <div id="menu1" class="tab-pane fade">
-                        <h3>Menu 1</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div id="menu1" class="tab-pane fade in active">
+                        <h3>Doodle account</h3>
+                        <div>
+                            <p>Email, password, etc</p>
+                            <hr>
+                            <form>
+                                <h3>Email</h3> <input type="text" name="email"><br>
+                                <h3>Current password</h3> <input type="text" name="oldpass"><br>
+                                <h3>New password</h3> <input type="text" name="newpass"><br>
+                                <h3>Re-enter password</h3> <input type="text" name="renewpass"><br>
+                                <input type="submit" value="save">
+                            </form>
+                        </div>
                     </div>
                     <div id="menu2" class="tab-pane fade">
-                        <h3>Menu 2</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                        <h3>Profile settings</h3>
+                        <p>Name, language, adress, etc</p>
+                        <hr>
+                        <form>
+                            avatar <img src="<c:url value="/resources/images/doodle_small_2x.png" />" alt="" height="80px" width="80px" style="margin-left: 20px"/> <input type="file">
+                            Name <input type="text"> <br>
+                            Year of birth <input type="text"> <br>
+                            <input type="submit" value="save">
+                            
+                        </form>
                     </div>
                     <div id="menu3" class="tab-pane fade">
-                        <h3>Menu 3</h3>
-                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        <h3>MeetMe page</h3>
+                        <p>Your personal profile for scheduling 1:1 meetings</p>
+                        <hr>
+                        <p>Partners, colleagues and friends want to meet you.
+                            Show them when you are available and how you want to be contacted.
+                            MeetMe is your central contact point to coordinate your meetings.</p>
+                    </div>
+                    <div id="menu4" class="tab-pane fade">
+                        <h3>Calendars</h3>
+                        <p>You can connect different calendar services in order
+                            to make use of your calendars when creating a poll or
+                            when participating in one.</p>
+                        <hr>
+                        <p>do some thing</p>
                     </div>
                 </div>
             </div>

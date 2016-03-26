@@ -18,6 +18,8 @@
         <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
         <script src="<c:url value="/resources/js/jquery-1.12.2.min.js" />"></script>
         <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/multipleDatePicker.min.js" />"></script>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/multiple-date-picker.css" />"/>
 
         <script>
             $(document).ready(function () {
@@ -60,7 +62,11 @@
         </div>
 
         <div id="calenda" style="display: none">
-            calenda picker<br><br>
+            calenda picker
+       
+                <multiple-date-picker/> dfgdfg
+          
+            <br><br>
             <button id="btn-date-back">Back</button>
             <button id="btn-date-next">Next</button><br><br>
         </div>

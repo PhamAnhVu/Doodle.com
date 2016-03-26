@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 21, 2016 12:23:36 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.Plans" table="plans" catalog="doodle" optimistic-lock="version">
+        <id name="planId" type="int">
+            <column name="planId" />
+            <generator class="identity" />
+        </id>
+        <property name="poolId" type="java.lang.Integer">
+            <column name="poolId" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" />
+        </property>
+        <property name="time" type="time">
+            <column name="time" length="8" />
+        </property>
+    </class>
+</hibernate-mapping>
