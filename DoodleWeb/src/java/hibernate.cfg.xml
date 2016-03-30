@@ -3,15 +3,17 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/doodle?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.connection.password"/>
-    <mapping resource="entities/Users.hbm.xml"/>
-    <mapping resource="entities/Pool.hbm.xml"/>
-    <mapping resource="entities/Plans.hbm.xml"/>
-    <mapping resource="entities/Voters.hbm.xml"/>
-    <mapping resource="entities/Admin.hbm.xml"/>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/doodle</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.show_sql">true</property>
+    <mapping resource="entity/Time.hbm.xml"/>
+    <mapping resource="entity/Vote.hbm.xml"/>
+    <mapping resource="entity/Admin.hbm.xml"/>
+    <mapping resource="entity/Dates.hbm.xml"/>
+    <mapping resource="entity/Poll.hbm.xml"/>
+    <mapping resource="entity/Participant.hbm.xml"/>
+    <mapping resource="entity/User.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -10,11 +10,11 @@ $(document).ready(function () {
         if ($("#password-re").val() === textlent) {
             $("#repass-alert").removeClass("alert alert-danger");
             $("#repass-alert").addClass("alert alert-success");
-            $("#repass-alert").text("equal");
+            $("#repass-alert").text("Mật khẩu nhập lại khớp");
         } else {
             $("#repass-alert").removeClass("alert alert-success");
             $("#repass-alert").addClass("alert alert-danger");
-            $("#repass-alert").text($("#password-re").val());
+            $("#repass-alert").text("Mật khẩu nhập lại không khớp");
         }
     });
 

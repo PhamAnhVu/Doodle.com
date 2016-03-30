@@ -1,16 +1,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="entity.*" %>
+<%@page import="model.*" %>
+<%@page import="java.util.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE>
 
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="<c:url value="/resources/images/d_icon.png" />" rel="shortcut icon" type="image/x-icon" /> 
+
         <title>doodle.com</title>
         <style>
 
         </style>
-        
+
         <!-- css and js file 
         -->
         <link href="<c:url value="/resources/css/style1.css" />" rel="stylesheet">
@@ -20,48 +23,46 @@
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
-        <div id="content-home">
-            <div id="page-header"></div>
-            <div class="boder-outline" id="page-container">
-                <div  id="navigation" class="row" style="margin-top: 20px; margin-left: 5px; width: 95%; min-width: 95%">
-
-                    <div style="margin-left: 10px;" class="col-md-2">
-                        <a href="<c:url value="/" />"><img src="<c:url value="/resources/images/doodle_small_2x.png" />" alt=""/></a>
-                    </div>
-
-                    <div style="">
-                        <%
-                            if (session.getAttribute("username") != null) {
-                        %>
-                        <a href="#" role="button" class="btn popovers" data-toggle="popover"
-                           style="margin-right: 0px; text-align: right; float: right;"
-                           data-content="<a href='<c:url value="/user/logout" />' title=''>Logout</a>
-                           <br><br><a href='<c:url value="/create" />' title=''>Manager acount</a>"
-                           data-placement="bottom">Wellcome, ${sessionScope.username}</a>
-                           <a href="" class="col-lg-2" style="float: right; margin-top: 8px; text-align: right">My polls</a>
-                           <a href="<c:url value="/create"/>" class="col-lg-3" style="float: right; text-align: right; margin-top: 8px;"> Schedule an event</a>
-                        <%  } else {
-                        %>
-                        <a href="<c:url value="/user/login" />" class="col-lg-1" style="margin-right: 0px; text-align: right; float: right;">Login</a>
-                        <a href="<c:url value="/user/singup" />" class="col-lg-1" style="margin-right: 5px; text-align: right; float: right">Singup</a>
-                        <%
-                            }
-                        %>
-                    </div>
+        <div id="content-home" >
+            <div class="boder-outline" id="page-container" style="margin-top: 35px;" >
+                <div id="page-header">
+                    <%@include file="header.jsp" %>
                 </div>
-                <hr style="background-color: black;">
-                <h1>Huong dan</h1>
-                <a href="<c:url value="/create"/>">create poll</a>
+                <div id="content" style="min-height: 800px; padding: 15px; margin-top: 65px;">
 
-                <script>
-                    $(document).ready(function () {
-                        $('[data-toggle="popover"]').popover();
-                    });
-                    $("[data-toggle=popover]")
-                            .popover({html: true})
-                </script>
+                    <h2></h2>
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Tạo mới sự kiên</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Modal Header</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div id="footer">
+                    <hr style="background-color: #06d; height: 4px;">
+                    <%@include file="footer.jsp" %>    
+                </div>
             </div>
+            <div style="height: 30px;"></div>
         </div>
-
     </body>
 </html>

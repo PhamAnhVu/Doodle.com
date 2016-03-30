@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 30, 2016 12:27:45 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.User" table="user" catalog="doodle" optimistic-lock="version">
+        <id name="userid" type="java.lang.Integer">
+            <column name="userid" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+        <property name="gender" type="string">
+            <column name="gender" length="45" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" />
+        </property>
+        <property name="avatar" type="string">
+            <column name="avatar" />
+        </property>
+        <property name="createdate" type="timestamp">
+            <column name="createdate" length="19" />
+        </property>
+        <set name="polls" table="poll" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="userid" />
+            </key>
+            <one-to-many class="entity.Poll" />
+        </set>
+    </class>
+</hibernate-mapping>

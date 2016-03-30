@@ -25,69 +25,83 @@
         </script>
     </head>
     <body>
-        <div class="container" style="margin: auto">
-            <h1 id="asdasd">Singup</h1>
-            <spring:form method="post" commandName="user" action="singup">
-                username <spring:input path="username" autocomplete="off"/><br>
-                password <spring:password path="password" autocomplete="off"/><br>
-                <input type="submit" value="Singup"/>
-            </spring:form>
-        </div>
-        <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="panel-title">Đăng kí</div>
-                    <div style="float:right; font-size: 85%; position: relative; top:-10px"></div>
-                </div>  
-                <div class="panel-body" >
-                    <form id="signupform" class="form-horizontal" role="form">
-
-                        <div id="signupalert" style="display:none" class="alert alert-danger">
-                            <p>Error:</p>
-                            <span></span>
-                        </div>
 
 
-                        <div class="form-group">
-                            <label for="email" class="col-md-3 control-label">Email</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="email" placeholder="Email Address">
+        <div id="content-home" >
+            <div class="boder-outline" id="page-container" style="margin-top: 35px;" >
+                <div id="page-header"><%@include file="header.jsp" %></div>
+                <div id="content" style="min-height: 600px; padding: 15px; margin-top: 91px;">
+                    <h2 style="margin-left: 50px">Đăng kí</h2>
+                    <div id="signupbox" style="margin-top:60px; margin-left: 140px" class="mainbox col-md-8 col-md-offset-5 col-sm-10 col-sm-offset-4">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="panel-title">Đăng kí</div>
+                                <div style="float:right; font-size: 85%; position: relative; top:-10px"></div>
+                            </div>  
+                            <div class="panel-body" >
+                                <spring:form id="signupform" class="form-horizontal" role="form" method="post" commandName="user" action="singup">
+
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="email" class="col-md-3 control-label">Email</label>
+                                        <div class="col-md-9">
+                                            <spring:input type="text" class="form-control" name="email" placeholder="Email Address" path="email"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="firstname" class="col-md-3 control-label">Tên hiển thị</label>
+                                        <div class="col-md-9">
+                                            <spring:input type="text" class="form-control" name="firstname" placeholder="First Name" path="username"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-md-3 control-label">Mật khẩu</label>
+                                        <div class="col-md-9">
+                                            <spring:input type="password" class="form-control" name="passwd" placeholder="Password" id="password1" path="password"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="icode" class="col-md-3 control-label">Nhập lại mật khẩu</label>
+                                        <div class="col-md-9">
+                                            <input type="password" class="form-control" name="icode" placeholder="" id="password-re">
+                                        </div>
+
+                                    </div>
+                                    <div class=""  id="repass-alert">
+                                    </div>
+                                    <c:if test="${not empty message}">
+                                        <div id="error" class="alert alert-danger">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            ${message}</div>
+                                    </c:if>
+                                    <div class="form-group">
+                                        <!-- Button -->                                        
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <input id="btn-signup" type="submit" class="btn btn-info" value="Đăng kí"/>
+                                        </div>
+                                    </div>
+
+                                </spring:form>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="firstname" class="col-md-3 control-label">Tên hiển thị</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="firstname" placeholder="First Name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="col-md-3 control-label">Mật khẩu</label>
-                            <div class="col-md-9">
-                                <input type="password" class="form-control" name="passwd" placeholder="Password" id="password1">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="icode" class="col-md-3 control-label">Nhập lại mật khẩu</label>
-                            <div class="col-md-9">
-                                <input type="password" class="form-control" name="icode" placeholder="" id="password-re">
-                            </div>
-
-                        </div>
-                        <div class=""  id="repass-alert">
-                        </div>
-                        <div class="form-group">
-                            <!-- Button -->                                        
-                            <div class="col-md-offset-3 col-md-9">
-                                <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
-                            </div>
-                        </div>
-
-                    </form>
+                </div>
+                <div id="footer">
+                    <hr style="background-color: #06d; height: 4px;">
+                    <%@include file="footer.jsp" %>    
                 </div>
             </div>
+            <div style="height: 30px;"></div>
         </div>
+
 
     </body>
 </html>

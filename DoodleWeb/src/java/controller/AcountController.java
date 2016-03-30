@@ -5,6 +5,7 @@
  */
 package controller;
 
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,8 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AcountController {
     
     @RequestMapping(method = RequestMethod.GET)
-    public String showAccount() {
-        return "account";
+    public String showAccount(HttpSession session) {
+       if (session.getAttribute("username") != null) {
+            return "account";
+        }
+       return "redirect:user/login";
     }
     
 }

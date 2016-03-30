@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 30, 2016 12:27:45 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Time" table="time" catalog="doodle" optimistic-lock="version">
+        <id name="timeid" type="java.lang.Integer">
+            <column name="timeid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="dates" class="entity.Dates" fetch="select">
+            <column name="dateid" />
+        </many-to-one>
+        <many-to-one name="poll" class="entity.Poll" fetch="select">
+            <column name="pollid" />
+        </many-to-one>
+        <property name="time" type="string">
+            <column name="time" length="65535" />
+        </property>
+        <property name="iselected" type="java.lang.Boolean">
+            <column name="iselected" />
+        </property>
+        <set name="votes" table="vote" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="timeid" />
+            </key>
+            <one-to-many class="entity.Vote" />
+        </set>
+    </class>
+</hibernate-mapping>

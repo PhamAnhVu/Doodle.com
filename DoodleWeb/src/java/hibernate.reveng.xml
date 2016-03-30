@@ -2,9 +2,11 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="doodle"/>
-  <table-filter match-name="voters"/>
-  <table-filter match-name="pool"/>
+  <table-filter match-name="vote"/>
+  <table-filter match-name="user"/>
   <table-filter match-name="admin"/>
-  <table-filter match-name="plans"/>
-  <table-filter match-name="users"/>
+  <table-filter match-name="participant"/>
+  <table-filter match-name="dates"/>
+  <table-filter match-name="poll"/>
+  <table-filter match-name="time"/>
 </hibernate-reverse-engineering>

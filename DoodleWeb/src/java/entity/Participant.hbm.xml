@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 30, 2016 12:27:45 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Participant" table="participant" catalog="doodle" optimistic-lock="version">
+        <id name="participantid" type="java.lang.Integer">
+            <column name="participantid" />
+            <generator class="identity" />
+        </id>
+        <property name="participantname" type="string">
+            <column name="participantname" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <set name="votes" table="vote" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="voterid" />
+            </key>
+            <one-to-many class="entity.Vote" />
+        </set>
+    </class>
+</hibernate-mapping>

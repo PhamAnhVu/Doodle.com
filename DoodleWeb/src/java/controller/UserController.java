@@ -5,7 +5,8 @@
  */
 package controller;
 
-import entities.User;
+import entity.User;
+import model.UserDao;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -33,10 +34,21 @@ public class UserController {
 
     @RequestMapping(value = "/singup", method = RequestMethod.POST)
     public String singup(@ModelAttribute(value = "user") User user, ModelMap map, HttpSession session) {
-        if (user.getUsername().equals("vupa")) {
+
+        UserDao userDao = new UserDao();
+        User existUser = userDao.getUser(user.getEmail());
+
+        if (existUser != null) {
+            map.addAttribute("message", "Tài khoản đã tồn tại");
+            return "singup";
+        }
+
+        if (userDao.insert(user)) {
+            session.setAttribute("username", user.getUsername());
             return "redirect:/";
         } else {
-            return "error";
+            map.addAttribute("message", "Hệ thống đã xảy ra lỗi, vui lòng thử lại sau");
+            return "singup";
         }
     }
 
@@ -52,11 +64,15 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute(value = "user") User user, ModelMap map, HttpSession session) {
-        if (user.getUsername().equals("vupa")) {
-            session.setAttribute("username", user.getUsername());
+        UserDao userDao = new UserDao();
+        User newUser = userDao.getUser(user.getEmail(), user.getPassword());
+
+        if (newUser != null) {
+            session.setAttribute("username", newUser.getUsername());
             return "redirect:/";
         } else {
-            return "error";
+            map.addAttribute("message", "Tài khoản hoặc mật khẩu không chính xác");
+            return "login";
         }
     }
 
